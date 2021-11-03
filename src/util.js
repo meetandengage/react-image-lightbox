@@ -44,9 +44,11 @@ export function getHighestSafeWindowContext(self = global.window.self) {
 
   // If parent is the same origin, we can move up one context
   // Reference: https://stackoverflow.com/a/21965342/1601953
-  if (!isCrossOriginFrame()) {
+  // comenting the 3 lines below because it is causing us problems dragging 
+  // zoomed images inside the iframe
+  /* if (!isCrossOriginFrame()) {
     return getHighestSafeWindowContext(self.parent);
-  }
+  } */
 
   // If a different origin, we consider the current level
   // as the top reachable one
